@@ -16,12 +16,12 @@
     const source = urlParams.get('source')
     const diagramType = urlParams.get('diagramType')
 
-    fetch(PROXY_URL + "v1/" + diagramType + "/generate?source=" + btoa(source), { method: "GET" })
+    fetch(PROXY_URL + "v1/" + diagramType + "/generate?source=" + source, { method: "GET" })
     .then(resp => resp.json())
     .then(data => {
       document.getElementById('loading').remove()
       document.getElementById("diagram").src = data.diagram
-      document.getElementById("source").href = data.source
+      document.getElementById("source").href = atob(data.source)
     })
 
   </script>
