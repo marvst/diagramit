@@ -13,7 +13,7 @@
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
 
-    const source = urlParams.get('source')
+    let source = urlParams.get('source')
     const diagramType = urlParams.get('diagramType')
 
     fetch(PROXY_URL + "v1/" + diagramType + "/generate?source=" + source, { method: "GET" })
@@ -21,7 +21,7 @@
     .then(data => {
       document.getElementById('loading').remove()
       document.getElementById("diagram").src = data.diagram
-      document.getElementById("source").href = atob(data.source)
+      document.getElementById("source").href = data.source
     })
 
   </script>
