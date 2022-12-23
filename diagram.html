@@ -21,6 +21,7 @@
     .then(data => {
       document.getElementById('loading').remove()
       document.getElementById("diagram").src = data.diagram
+      document.getElementById("diagram-url").href = window.location.href
       document.getElementById("source").href = data.source
     })
 
@@ -39,15 +40,32 @@
     .tools {
       background-color: #333; 
       color: white; 
-      width: 50px; 
+      /* width: 50px;  */
+      padding: 10px;
       border-radius: 100px; 
-      height: 50px; 
-      font-size: 30px; 
+      /* height: 50px;  */
+      font-size: 15px; 
       bottom: 20px; 
       right: 20px; 
       position: fixed
     }
+    .tools-view-original {
+      background-color: #333; 
+      color: white; 
+      /* width: 50px;  */
+      padding: 10px;
+      border-radius: 100px; 
+      /* height: 50px;  */
+      font-size: 15px; 
+      bottom: 20px; 
+      right: 100px; 
+      position: fixed
+    }
     .tools a {
+      text-decoration: none; 
+      color: white
+    }
+    .tools-view-original a {
       text-decoration: none; 
       color: white
     }
@@ -67,7 +85,10 @@
     <img src="" id="diagram" >
   </div>
   <div class="tools">
-    <a href="" id="source" target="_blank">✎</a>
+    <a href="" id="source" target="_blank">Edit</a>
+  </div>
+  <div class="tools-view-original">
+    <a href="" id="diagram-url" target="_blank">View original</a>
   </div>
 </body>
 </html>
